@@ -69,4 +69,4 @@ jobs:
     - name: Deploy to Heroku
       run: |
         git push heroku main
-        curl 'https://${{ secrets.HEROKU_APP_NAME }}.herokuapp.com/'
+        curl 'https://${{ secrets.HEROKU_APP_NAME }}.herokuapp.com'
