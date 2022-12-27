@@ -42,12 +42,6 @@ jobs:
         python3 -m unittest test.py
       env:
         CI: true
-    - name: deploy
-      run: |
-        docker build -t notmyapp .
-        docker run -d -p 5000:5000 notmyapp
-        docker ps
-        docker ps -a
     - name: Heroku login credentials
       run: |
           cat > ~/.netrc <<EOF
