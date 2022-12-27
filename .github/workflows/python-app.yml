@@ -19,6 +19,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+          fetch-depth: 0
+    - uses: actions/checkout@v3
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -45,9 +48,6 @@ jobs:
         docker run -d -p 5000:5000 notmyapp
         docker ps
         docker ps -a
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
     - name: Heroku login credentials
       run: |
           cat > ~/.netrc <<EOF
