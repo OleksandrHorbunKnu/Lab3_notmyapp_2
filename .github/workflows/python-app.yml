@@ -63,6 +63,7 @@ jobs:
     - name: Deploy to Heroku
       run: |
         git checkout -b main
-        git fetch --all --unshallow
+        git fetch heroku
+        git reset --hard heroku/main
         git push heroku main --force
         curl 'https://${{ secrets.HEROKU_APP_NAME }}.herokuapp.com/'
