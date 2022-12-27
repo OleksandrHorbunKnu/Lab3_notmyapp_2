@@ -62,8 +62,7 @@ jobs:
           HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
     - name: Deploy to Heroku
       run: |
-        git checkout -b main
-        git fetch heroku
-        git reset --hard heroku/main
+        [alias]
+          unshallow = !"git fetch --unshallow \"${1:-origin}\" # Unshallow from remote $1 (defaults to origin)"
         git push heroku main --force
         curl 'https://${{ secrets.HEROKU_APP_NAME }}.herokuapp.com/'
